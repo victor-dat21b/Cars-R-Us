@@ -17,6 +17,12 @@ public class Member extends UserWithRoles {
         this.firstName = firstName;
     }
 
+    public Member(String username, String email, String password, String firstName) {
+        super(username, email, password);
+        this.firstName = firstName;
+    }
+
+
     public Member(){
 
     }

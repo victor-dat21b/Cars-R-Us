@@ -1,5 +1,8 @@
 package dat3.cars.configuration;
 
+import dat3.cars.entity.Car;
+import dat3.cars.entity.Member;
+import dat3.cars.repository.CarRepository;
 import dat3.cars.repository.MemberRepository;
 import dat3.security.entity.Role;
 import dat3.security.entity.UserWithRoles;
@@ -9,22 +12,29 @@ import org.springframework.stereotype.Controller;
 import dat3.security.repository.UserWithRolesRepository;
 
 @Controller
-public class SetupDevUsers implements ApplicationRunner {
+public class SetupDevUsersAndCar implements ApplicationRunner {
 
 
+    CarRepository carRepository;
     MemberRepository memberRepository;
     UserWithRolesRepository userWithRolesRepository;
     String passwordUsedByAll;
 
-    public SetupDevUsers(UserWithRolesRepository userWithRolesRepository) {
+
+
+
+    public SetupDevUsersAndCar(UserWithRolesRepository userWithRolesRepository, MemberRepository memberRepository, CarRepository carRepository) {
         this.userWithRolesRepository = userWithRolesRepository;
+        this.memberRepository = memberRepository;
+        this.carRepository = carRepository;
+
         passwordUsedByAll = "test12";
     }
 
     @Override
     public void run(ApplicationArguments args) {
-        System.out.println("Udskriver fra run override");
         setupUserWithRoleUsers();
+        setupCar();
     }
 
     /*****************************************************************************************
@@ -32,11 +42,6 @@ public class SetupDevUsers implements ApplicationRunner {
      iT'S ONE OF THE TOP SECURITY FLAWS YOU CAN DO
      *****************************************************************************************/
     private void setupUserWithRoleUsers() {
-        System.out.println("******************************************************************************");
-        System.out.println("******* NEVER  COMMIT/PUSH CODE WITH DEFAULT CREDENTIALS FOR REAL ************");
-        System.out.println("******* REMOVE THIS BEFORE DEPLOYMENT, AND SETUP DEFAULT USERS DIRECTLY  *****");
-        System.out.println("**** ** ON YOUR REMOTE DATABASE                 ******************************");
-        System.out.println("******************************************************************************");
         UserWithRoles user1 = new UserWithRoles("user1", passwordUsedByAll, "user1@a.dk");
         UserWithRoles user2 = new UserWithRoles("user2", passwordUsedByAll, "user2@a.dk");
         UserWithRoles user3 = new UserWithRoles("user3", passwordUsedByAll, "user3@a.dk");
@@ -44,8 +49,19 @@ public class SetupDevUsers implements ApplicationRunner {
         user1.addRole(Role.ADMIN);
         user2.addRole(Role.USER);
         user3.addRole(Role.ADMIN);
+        Member member1 = new Member("user4", passwordUsedByAll, "user4@a.dk", "Jens");
         userWithRolesRepository.save(user1);
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
+        memberRepository.save(member1);
+        System.out.println(userWithRolesRepository.findAll());
+    }
+
+    public void setupCar(){
+        Car car1 = new Car("Toyota", "Aygo", 1000, 200);
+        Car car2 = new Car("Bmw", "X1", 1500, 250);
+        carRepository.save(car1);
+        carRepository.save(car2);
+
     }
 }
