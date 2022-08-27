@@ -23,6 +23,7 @@ public class SetupDevUsers implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        System.out.println("Udskriver fra run override");
         setupUserWithRoleUsers();
     }
 
