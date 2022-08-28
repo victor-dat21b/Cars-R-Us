@@ -25,7 +25,7 @@ public class AllController {
 
 
 
-    @GetMapping("/")
+    @GetMapping("/api/allusers")
     public String showDatabase(){
         return userWithRolesRepository.findAll().toString() + carRepository.findAll().toString();
 
