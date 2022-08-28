@@ -49,11 +49,11 @@ public class SetupDevUsersAndCar implements ApplicationRunner {
         user1.addRole(Role.ADMIN);
         user2.addRole(Role.USER);
         user3.addRole(Role.ADMIN);
-        //Member member1 = new Member("user4", passwordUsedByAll, "user4@a.dk", "Jens", "Hansen");
+        Member member1 = new Member("user4", passwordUsedByAll, "user4@a.dk", "Jens", "Hansen");
         userWithRolesRepository.save(user1);
         userWithRolesRepository.save(user2);
         userWithRolesRepository.save(user3);
-        //memberRepository.save(member1);
+        memberRepository.save(member1);
         System.out.println(userWithRolesRepository.findAll());
     }
 
