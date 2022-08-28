@@ -12,11 +12,11 @@ import java.util.List;
 public class Member extends UserWithRoles {
 
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     String firstName;
 
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     String lastName;
 
     public Member(String username, String email, String password, boolean enabled, LocalDateTime created, LocalDateTime edited, List<Role> roles, String firstName) {
