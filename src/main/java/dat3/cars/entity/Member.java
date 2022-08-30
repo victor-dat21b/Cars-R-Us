@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Entity
 public class Member extends UserWithRoles {
-
 
     @Column(length = 50)
     String firstName;
@@ -33,5 +33,21 @@ public class Member extends UserWithRoles {
 
     public Member(){
 
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
