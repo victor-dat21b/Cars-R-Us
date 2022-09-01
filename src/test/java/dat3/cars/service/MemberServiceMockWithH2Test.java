@@ -26,8 +26,8 @@ class MemberServiceMockWithH2Test {
     public static void setupData(@Autowired MemberRepository member_Repository){
         memberRepository = member_Repository;
         List<Member> members = List.of(
-                new Member("m1", "pw", "m1@a.dk", "aa", "aaa", "aaaa", "aaaa", "1234"),
-                new Member("m2", "pw", "mm@a.dk", "bb", "bbb", "bbbb", "bbbb", "1234")
+                new Member("m1", "pw", "m1@a.dk", "1234", "gghghg"),
+                new Member("m2", "pw", "mm@a.dk", "1234", "gfghfjgh")
         );
         memberRepository.saveAll(members);
     }
