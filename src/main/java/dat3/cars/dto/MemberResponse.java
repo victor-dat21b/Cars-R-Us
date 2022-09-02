@@ -33,15 +33,15 @@ import java.time.LocalDateTime;
         public MemberResponse(Member m, boolean includeAll) {
             this.username = m.getUsername();
             this.email = m.getEmail();
-            //this.street = m.getStreet();
+            this.street = m.getStreet();
             this.firstName =m.getFirstName();
             this.lastName = m.getLastName();
-            //this.city = m.getCity();
-            //this.zip = m.getZip();
+            this.city = m.getCity();
+            this.zip = m.getZip();
             if(includeAll){
                 this.created = m.getCreated();
                 this.edited = m.getEdited();
-                //this.ranking = m.getRanking();
+                this.ranking = m.getRanking();
             }
         }
     }

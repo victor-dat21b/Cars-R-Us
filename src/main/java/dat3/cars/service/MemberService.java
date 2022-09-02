@@ -6,7 +6,6 @@ import dat3.cars.entity.Member;
 import dat3.cars.repository.MemberRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public List<MemberResponse> findMembers() {
+    public List<MemberResponse> getMembers() {
         List<Member> members = memberRepository.findAll();
         List<MemberResponse> response = members.stream().map(member -> new MemberResponse(member, false)).collect(Collectors.toList());
     return response;

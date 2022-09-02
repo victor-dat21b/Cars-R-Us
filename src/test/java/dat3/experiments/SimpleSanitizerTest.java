@@ -9,7 +9,7 @@ class SimpleSanitizerTest {
 
     @Test
     public void simpleSanitizeTest(){
-        String result = SimpleSanitizer.simpleSanitize("Hello <b>World<b/>");
+        String result = SimpleSanitizer.simpleSanitize("Hello World");
         assertEquals("Hello World", result);
     }
 
