@@ -16,6 +16,8 @@ class MemberRepositoryTest {
 
     @BeforeAll
     public static void memberSetup(@Autowired MemberRepository memberRepository){
+        memberRepository.deleteAll();
+        //Kan være en fordel at slette alle hvis man ikke vil køre det på alle tests.
         Member member1 = new Member("user4", "passwordUsedByAll", "user4@a.dk", "Jens", "Hansen");
         memberRepository.save(member1);
     }
