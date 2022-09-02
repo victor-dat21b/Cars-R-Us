@@ -42,19 +42,15 @@ public class SetupDevUsersAndCar implements ApplicationRunner {
      iT'S ONE OF THE TOP SECURITY FLAWS YOU CAN DO
      *****************************************************************************************/
     private void setupUserWithRoleUsers() {
-        UserWithRoles user1 = new UserWithRoles("user1", passwordUsedByAll, "user1@a.dk");
-        UserWithRoles user2 = new UserWithRoles("user2", passwordUsedByAll, "user2@a.dk");
-        UserWithRoles user3 = new UserWithRoles("user3", passwordUsedByAll, "user3@a.dk");
-        user1.addRole(Role.USER);
-        user1.addRole(Role.ADMIN);
-        user2.addRole(Role.USER);
-        user3.addRole(Role.ADMIN);
-        //Member member1 = new Member("user4", passwordUsedByAll, "user4@a.dk", "Jens", "Hansen");
-        userWithRolesRepository.save(user1);
-        userWithRolesRepository.save(user2);
-        userWithRolesRepository.save(user3);
-        //memberRepository.save(member1);
-        System.out.println(userWithRolesRepository.findAll());
+
+        Member member1 = new Member("m1", "pw", "m1@a.dk", "Jens", "Jensen","Elmegade", "København", "2100" );
+        Member member2 = new Member("m2", "pw", "mm@a.dk", "Berit", "jOHN", "Elmegade", "København", "2100");
+        Member member3= new Member("m3", "pw", "mmM@a.dk", "bENT", "bØRGE", "Elmegade", "Roskilde", "2100");
+        Member member4= new Member("m4", "pw", "mmM4@a.dk", "Hans", "Brian", "Elmegade", "Roskilde", "2100");
+        memberRepository.save(member1);
+        memberRepository.save(member2);
+        memberRepository.save(member3);
+        memberRepository.save(member4);
     }
 
     public void setupCar(){
