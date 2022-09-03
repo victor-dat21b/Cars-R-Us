@@ -20,7 +20,7 @@ class MemberServiceMockWithH2Test {
 
     public  MemberService memberService;
 
-    public  static MemberRepository memberRepository;
+    public static MemberRepository memberRepository;
 
     @BeforeAll
     public static void setupData(@Autowired MemberRepository member_Repository){
@@ -31,6 +31,8 @@ class MemberServiceMockWithH2Test {
         );
         memberRepository.saveAll(members);
     }
+
+
 
     @BeforeEach
     public void setMemberService(){

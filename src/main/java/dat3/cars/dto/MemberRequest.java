@@ -20,7 +20,7 @@ import lombok.Setter;
         String zip;
 
         public static Member getMemberEntity(MemberRequest m){
-            return new Member(m.username,m.getEmail(),m.getPassword(), m.getFirstName(), m.getLastName(), m.getStreet(), m.getCity(), m.getZip());
+            return new Member(m.username, m.getPassword(), m.getEmail(), m.getFirstName(), m.getLastName(), m.getStreet(), m.getCity(), m.getZip());
         }
 
         // Member to MemberRequest conversion
@@ -28,9 +28,12 @@ import lombok.Setter;
             this.username = m.getUsername();
             this.password = m.getPassword();
             this.email = m.getEmail();
+            this.firstName = m.getFirstName();
+            this.lastName = m.getLastName();
             this.street = m.getStreet();
             this.city = m.getCity();
             this.zip = m.getZip();
+
         }
     }
 

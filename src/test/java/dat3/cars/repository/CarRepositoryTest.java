@@ -19,10 +19,14 @@ class CarRepositoryTest {
 
     @BeforeAll
     public static void setupTestCars(@Autowired CarRepository carRepository){
-        Car car1 = new Car("Toyota", "Aygo", 1000, 200);
-        Car car2 = new Car("Bmw", "X1", 1500, 250);
+        Car car1 = new Car("Toyota", "Aygo", 900);
+        Car car2 = new Car("Bmw", "X1", 15000);
+        Car car3 = new Car("Suzuki", "Swift", 1100);
+        Car car4 = new Car("Merdedes", "Cla200", 15000);
         carRepository.save(car1);
         carRepository.save(car2);
+        carRepository.save(car3);
+        carRepository.save(car4);
 
 
     }

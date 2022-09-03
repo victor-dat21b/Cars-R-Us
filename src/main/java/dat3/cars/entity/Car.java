@@ -1,6 +1,8 @@
 package dat3.cars.entity;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -8,14 +10,18 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
+@Getter
+@Setter
 @ToString
 @Entity
 public class Car {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
-    private int Id;
+    private int id;
 
     @Column(nullable = false)
     private String brand;
@@ -26,7 +32,7 @@ public class Car {
     @Column(nullable = false)
     private int pricePrDay;
 
-    @Column(nullable = false)
+
     private int bestDiscount;
 
     @CreationTimestamp
@@ -35,68 +41,14 @@ public class Car {
     @UpdateTimestamp
     private LocalDateTime edited;
 
-    public Car(){
+    public Car() {
     }
 
 
-    public Car(String brand, String model, int pricePrDay, int bestDiscount){
+    public Car(String brand, String model, int pricePrDay) {
         this.brand = brand;
         this.model = model;
         this.pricePrDay = pricePrDay;
-        this.bestDiscount = bestDiscount;
     }
 
-
-    public int getId() {
-        return Id;
-    }
-
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public int getPricePrDay() {
-        return pricePrDay;
-    }
-
-    public void setPricePrDay(int pricePrDay) {
-        this.pricePrDay = pricePrDay;
-    }
-
-    public int getBestDiscount() {
-        return bestDiscount;
-    }
-
-    public void setBestDiscount(int bestDiscount) {
-        this.bestDiscount = bestDiscount;
-    }
-
-    public LocalDateTime getCreated() {
-        return created;
-    }
-
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
-    }
-
-    public LocalDateTime getEdited() {
-        return edited;
-    }
-
-    public void setEdited(LocalDateTime edited) {
-        this.edited = edited;
-    }
 }
