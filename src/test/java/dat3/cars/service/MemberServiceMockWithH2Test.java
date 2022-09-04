@@ -41,15 +41,4 @@ class MemberServiceMockWithH2Test {
 
 
 
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void addMember() {
-    }
-
-    @Test
-    void findMemberByUsername() {
-    }
 }

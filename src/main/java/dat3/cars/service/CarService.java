@@ -39,12 +39,12 @@ public class CarService {
         return new CarResponse(newCar, false);
     }
 
-    public CarResponse findCarById(int id) throws Exception {
+    public CarResponse findCarById(int id, Boolean flag) throws Exception{
         Car found = carRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Car not found"));
-        return new CarResponse(found,false);
+        return new CarResponse(found,flag);
     }
 
-    public CarResponse editCar(CarRequest body, int id){
+    public CarResponse editCar(CarRequest body, int id) throws Exception{
         Car car = carRepository.findById(id).orElseThrow(()->  new ResponseStatusException(HttpStatus.BAD_REQUEST,"Car with this id doesnt exist"));
 
         car.setBrand(body.getBrand());
@@ -53,10 +53,11 @@ public class CarService {
         carRepository.save(car);
         return new CarResponse(car, false);
     }
-    public void setDiscountForCar(int id, int value) {
+    public void setDiscountForCar(int id, int value) throws Exception {
         Car car = carRepository.findById(id).orElseThrow(()->  new ResponseStatusException(HttpStatus.BAD_REQUEST,"Car with this id doesnt exist"));
         car.setBestDiscount(value);
         carRepository.save(car);
+
     }
 
     public void deleteById(int id) {

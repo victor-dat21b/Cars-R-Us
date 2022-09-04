@@ -30,9 +30,6 @@ class MemberRepositoryTest {
     }
 
 
-    @Test
-    public void memberTest(){
-        assertNotNull(memberRepository.findAll());
-    }
+
 
 }

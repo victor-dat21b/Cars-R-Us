@@ -14,11 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class CarRepositoryTest {
 
 
-    @Autowired CarRepository carRepository;
+   public static CarRepository carRepository;
 
 
     @BeforeAll
-    public static void setupTestCars(@Autowired CarRepository carRepository){
+    public static void setupTestCars(@Autowired CarRepository car_Repository){
+        carRepository = car_Repository;
+        /*
         Car car1 = new Car("Toyota", "Aygo", 900);
         Car car2 = new Car("Bmw", "X1", 15000);
         Car car3 = new Car("Suzuki", "Swift", 1100);
@@ -29,11 +31,9 @@ class CarRepositoryTest {
         carRepository.save(car4);
 
 
-    }
-    @Test
-    public void checkCars(){
-        assertNotNull(carRepository.findAll());
 
+         */
+        System.out.println(car_Repository.findAll());
 
     }
 

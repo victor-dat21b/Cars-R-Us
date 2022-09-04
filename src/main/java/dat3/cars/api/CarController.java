@@ -35,7 +35,7 @@ public class CarController {
     //Security --> USER/ADMIN
     @GetMapping(path = "/{id}")
     CarResponse getCarById(@PathVariable int id) throws Exception {
-        return carService.findCarById(id);
+        return carService.findCarById(id, false);
     }
 
     //Security --> USER/ADMIN
@@ -50,13 +50,13 @@ public class CarController {
 
     //Security --> USER/ADMIN
     @PutMapping("/{id}")
-    CarResponse editCar(@RequestBody CarRequest body, @PathVariable int id){
+    CarResponse editCar(@RequestBody CarRequest body, @PathVariable int id) throws Exception {
         return carService.editCar(body, id);
     }
 
     //Security USER/ADMIN
     @PatchMapping("/discount/{id}/{value}")
-    void setModelForCar(@PathVariable int id, @PathVariable int value) {
+    void setModelForCar(@PathVariable int id, @PathVariable int value) throws Exception {
         carService.setDiscountForCar(id, value);
     }
 
