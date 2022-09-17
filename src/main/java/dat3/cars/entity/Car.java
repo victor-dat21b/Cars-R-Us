@@ -1,26 +1,30 @@
 package dat3.cars.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @ToString
+@EqualsAndHashCode  // When performance becomes important, never set like this
+
 @Entity
 public class Car {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, unique = true)
     private int id;
 
     @Column(nullable = false)
@@ -41,14 +45,25 @@ public class Car {
     @UpdateTimestamp
     private LocalDateTime edited;
 
-    public Car() {
-    }
+
+
+
+
+    @OneToMany(mappedBy = "car", fetch = FetchType.LAZY)
+    private List<Reservation> reservations = new ArrayList<>();
+
+
 
 
     public Car(String brand, String model, int pricePrDay) {
         this.brand = brand;
         this.model = model;
         this.pricePrDay = pricePrDay;
+    }
+
+
+    public void addReservation(Reservation res){
+        reservations.add(res);
     }
 
 }

@@ -3,8 +3,6 @@ package dat3.cars.api;
 
 import dat3.cars.dto.CarRequest;
 import dat3.cars.dto.CarResponse;
-import dat3.cars.dto.MemberRequest;
-import dat3.cars.dto.MemberResponse;
 import dat3.cars.service.CarService;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,7 +54,7 @@ public class CarController {
 
     //Security USER/ADMIN
     @PatchMapping("/discount/{id}/{value}")
-    void setModelForCar(@PathVariable int id, @PathVariable int value) throws Exception {
+    void setDiscountForCar(@PathVariable int id, @PathVariable int value) throws Exception {
         carService.setDiscountForCar(id, value);
     }
 
