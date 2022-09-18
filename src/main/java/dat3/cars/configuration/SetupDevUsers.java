@@ -1,3 +1,4 @@
+/*
 package dat3.cars.configuration;
 
 import dat3.cars.entity.Car;
@@ -64,6 +65,7 @@ public class SetupDevUsers implements ApplicationRunner {
    NEVER  COMMIT/PUSH CODE WITH DEFAULT CREDENTIALS FOR REAL
    iT'S ONE OF THE TOP SECURITY FLAWS YOU CAN DO
    *****************************************************************************************/
+/*
   private void setupUserWithRoleUsers() {
     System.out.println("******************************************************************************");
     System.out.println("******* NEVER  COMMIT/PUSH CODE WITH DEFAULT CREDENTIALS FOR REAL ************");
@@ -82,3 +84,5 @@ public class SetupDevUsers implements ApplicationRunner {
     userWithRolesRepository.save(user3);
   }
 }
+
+ */
