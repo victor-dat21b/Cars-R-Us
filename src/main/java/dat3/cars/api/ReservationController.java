@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+@CrossOrigin(origins = "https://cars-r-us-dat12b.azurewebsites.net/", maxAge = 3600)
 @RestController
 @RequestMapping("api/reservations")
 public class ReservationController {
